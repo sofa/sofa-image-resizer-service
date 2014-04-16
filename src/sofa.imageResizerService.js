@@ -1,7 +1,7 @@
 'use strict';
 /* global sofa */
 
-sofa.define('sofa.ImageResizerService', function (configService) {
+sofa.define('sofa.ImageResizerService', function (configService, $window) {
     //http://stackoverflow.com/questions/1714786/querystring-encoding-of-a-javascript-object
     function objectToQueryString(obj) {
         var str = [];
@@ -52,14 +52,14 @@ sofa.define('sofa.ImageResizerService', function (configService) {
 
         // Add protocol if not specified in URL
         if (/^\/\//.test(imageUrl)) {
-            imageUrl = window.location.protocol + imageUrl;
+            imageUrl = $window.location.protocol + imageUrl;
         }
 
         var defaults = {
             cmd: 'resize',
             url: imageUrl,
             quality: 100,
-            devicePixelRatio: window.devicePixelRatio
+            devicePixelRatio: $window.devicePixelRatio
         },
             fullArgs = sofa.Util.extend(args, defaults),
             imageExt = imageUrl.substring(imageUrl.lastIndexOf('.') + 1);
@@ -70,7 +70,7 @@ sofa.define('sofa.ImageResizerService', function (configService) {
             fullArgs.maxheight *= args.devicePixelRatio;
         }
 
-        var encodedCall = window.btoa(objectToQueryString(fullArgs)).replace('/', '_') + '.' + imageExt,
+        var encodedCall = $window.btoa(objectToQueryString(fullArgs)).replace('/', '_') + '.' + imageExt,
             resizedImageUrl = configService.get('imageResizerEndpoint') + encodedCall;
 
         resizeUrlCache[cacheKey] = resizedImageUrl;

@@ -8,7 +8,7 @@ describe('sofa.ImageResizerService', function () {
 
     beforeEach(function () {
         configService = new sofa.ConfigService();
-        imageResizerService = new sofa.ImageResizerService(configService);
+        imageResizerService = new sofa.ImageResizerService(configService, window);
     });
 
     it('should be defined', function () {
