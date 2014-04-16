@@ -7,3 +7,7 @@ before_install:
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
+notifications:
+  hipchat:
+    rooms:
+      secure: TqCkyCRAsEB5bhAlsF2XKq0BZR26ymhV2YFqnGSIwGNblonJsExseRVNGuxZEcxQKEN/LfCJ+6Toe6i/9dUvPL17YOpN1aSC8g/6xh74RpMt34u02QY832O8WRh+bU8IBXoZXPURG64CXdCsTEcM4Jn1CW+yJY9P+3QPuIrn7nk=
