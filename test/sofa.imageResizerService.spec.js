@@ -25,13 +25,17 @@ describe('sofa.ImageResizerService', function () {
             expect(typeof imageResizerService.resize).toBe('function');
         });
 
-        it('should require maxwidth/maxheight', function() {
-            expect(function () {  imageResizerService.resize(); }).toThrow('maxwidth and maxheight are required parameters');
+        it('should require maxwidth/maxheight', function () {
+            expect(function () {
+                imageResizerService.resize();
+            }).toThrow('maxwidth and maxheight are required parameters');
         });
 
-        // it('should return a string', function () {
-        //     expect(typeof imageResizerService.resize()).toBe('string');
-        // });
+        it('should return a url to the CDN', function () {
+            var resizedUrl = imageResizerService.resize('https://www.couchcommerce.com/images/couch_brand.png', { maxwidth: 100, maxheight: 100});
+            expect(resizedUrl).toBe('string');
+            expect(resizedUrl.contains(configService.indexOf('imageResizerEndpoint')) > -1).toBe(true);
+        });
 
     });
 });
