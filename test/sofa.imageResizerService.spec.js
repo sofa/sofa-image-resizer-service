@@ -25,8 +25,13 @@ describe('sofa.ImageResizerService', function () {
             expect(typeof imageResizerService.resize).toBe('function');
         });
 
-        it('should return a string', function () {
-            expect(typeof imageResizerService.resize()).toBe('string');
+        it('should require maxwidth/maxheight', function() {
+            expect(function () {  imageResizerService.resize(); }).toThrow('maxwidth and maxheight are required parameters');
         });
+
+        // it('should return a string', function () {
+        //     expect(typeof imageResizerService.resize()).toBe('string');
+        // });
+
     });
 });
