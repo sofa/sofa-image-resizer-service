@@ -37,5 +37,11 @@ describe('sofa.ImageResizerService', function () {
             expect(resizedUrl.indexOf(configService.get('imageResizerEndpoint')) > -1).toBe(true);
         });
 
+        it('should not resize when disabled', function () {
+            sofa.Config.imageResizerEnabled = false;
+            var originalUrl = 'https://www.couchcommerce.com/images/couch_brand.png';
+            var resizedUrl = imageResizerService.resize(originalUrl, { maxwidth: 100, maxheight: 100});
+            expect(resizedUrl).toBe(originalUrl);
+        });
     });
 });

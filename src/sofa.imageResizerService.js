@@ -2,9 +2,6 @@
 /* global sofa */
 
 sofa.define('sofa.ImageResizerService', function (configService) {
-    var RESIZER_ENDPOINT = configService.get('imageResizerEndpoint');
-    var RESIZER_ENABLED = configService.get('imageResizerEnabled');
-
     //http://stackoverflow.com/questions/1714786/querystring-encoding-of-a-javascript-object
     function objectToQueryString(obj) {
         var str = [];
@@ -31,7 +28,7 @@ sofa.define('sofa.ImageResizerService', function (configService) {
         self = {};
 
     self.resize = function (imageUrl, args) {
-        if (!RESIZER_ENABLED) {
+        if (!configService.get('imageResizerEnabled')) {
             return (imageUrl);
         }
 
@@ -74,7 +71,7 @@ sofa.define('sofa.ImageResizerService', function (configService) {
         }
 
         var encodedCall = window.btoa(objectToQueryString(fullArgs)).replace('/', '_') + '.' + imageExt,
-            resizedImageUrl = RESIZER_ENDPOINT + encodedCall;
+            resizedImageUrl = configService.get('imageResizerEndpoint') + encodedCall;
 
         resizeUrlCache[cacheKey] = resizedImageUrl;
 
