@@ -34,7 +34,7 @@ describe('sofa.ImageResizerService', function () {
         it('should return a url to the CDN', function () {
             var resizedUrl = imageResizerService.resize('https://www.couchcommerce.com/images/couch_brand.png', { maxwidth: 100, maxheight: 100});
             expect(resizedUrl).toBe('string');
-            expect(resizedUrl.contains(configService.indexOf('imageResizerEndpoint')) > -1).toBe(true);
+            expect(resizedUrl.indexOf(configService.get('imageResizerEndpoint')) > -1).toBe(true);
         });
 
     });
