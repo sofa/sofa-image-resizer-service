@@ -1,21 +1,21 @@
 {
-  "name": "sofa-image-resizer-service",
-  "version": "0.1.1",
-  "homepage": "http://www.sofa.io",
-  "authors": [
-    "Pascal Precht <pascal@couchcommerce.com>"
-  ],
-  "dependencies": {
-    "sofa-core": "~0.6.1"
-  },
-  "description": "Sofa Web SDK component.",
-  "main": "dist/sofa.imageResizerService.js",
-  "keywords": [
-    "sofa",
-    "sofa.io",
-    "web",
-    "sdk",
-    "core"
-  ],
-  "license": "GPL"
+    "name": "sofa-image-resizer-service",
+    "version": "0.2.0",
+    "homepage": "http://www.sofa.io",
+    "authors": [
+        "Pascal Precht <pascal@couchcommerce.com>"
+    ],
+    "dependencies": {
+        "sofa-core": "~0.6.1"
+    },
+    "description": "Sofa Web SDK component.",
+    "main": "dist/sofa.imageResizerService.js",
+    "keywords": [
+        "sofa",
+        "sofa.io",
+        "web",
+        "sdk",
+        "core"
+    ],
+    "license": "GPL"
 }

@@ -1,3 +1,17 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2014-06-23)
+
+
+#### Bug Fixes
+
+* **gitignore:** add bower_components ([2a9f1e13](https://github.com/sofa/sofa-image-resizer-service/commit/2a9f1e137c5249a6a6b695c794f767d3bafce0c7))
+
+
+#### Features
+
+* **grunt:** better deploying ([8d0328a5](https://github.com/sofa/sofa-image-resizer-service/commit/8d0328a50f4c31961913212c80aead21e14841ed))
+
+
 <a name="0.1.1"></a>
 ### 0.1.1 (2014-06-18)
 
