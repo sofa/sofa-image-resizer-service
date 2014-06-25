@@ -34,13 +34,13 @@ describe('sofa.ImageResizerService', function () {
         it('should return a url to the CDN', function () {
             var resizedUrl = imageResizerService.resize('https://www.couchcommerce.com/images/couch_brand.png', { maxwidth: 100, maxheight: 100});
             expect(typeof resizedUrl).toBe('string');
-            expect(resizedUrl.indexOf(configService.get('imageResizerEndpoint')) > -1).toBe(true);
+            expect(resizedUrl.indexOf(configService.get('imageResizer')) > -1).toBe(true);
         });
 
         it('should accept parameters in query string format', function () {
             var resizedUrl = imageResizerService.resize('https://www.couchcommerce.com/images/couch_brand.png', 'maxwidth=100&maxheight=100');
             expect(typeof resizedUrl).toBe('string');
-            expect(resizedUrl.indexOf(configService.get('imageResizerEndpoint')) > -1).toBe(true);
+            expect(resizedUrl.indexOf(configService.get('imageResizer')) > -1).toBe(true);
         });
 
         it('should not resize when disabled', function () {

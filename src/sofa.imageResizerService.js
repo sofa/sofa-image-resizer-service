@@ -40,7 +40,7 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
         var str = [];
         for (var p in obj) {
             if (obj.hasOwnProperty(p)) {
-                str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+                str.push(p + '=' + obj[p]);
             }
         }
         return str.join('&');
@@ -90,7 +90,7 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
 
         var defaults = {
             cmd: 'resize',
-            url: imageUrl,
+            url: encodeURI(imageUrl),
             quality: 100,
             devicePixelRatio: $window.devicePixelRatio
         },
@@ -103,8 +103,8 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
             fullArgs.maxheight *= args.devicePixelRatio;
         }
 
-        var encodedCall = base64Encode(objectToQueryString(fullArgs)).replace('/', '_') + '.' + imageExt,
-            resizedImageUrl = configService.get('imageResizerEndpoint') + encodedCall;
+        var encodedCall = base64Encode(objectToQueryString(fullArgs)).replace('/', '_').match(/.{1,250}/g).join('/') + '.' + imageExt,
+            resizedImageUrl = configService.get('imageResizer') + encodedCall;
 
         resizeUrlCache[cacheKey] = resizedImageUrl;
 
