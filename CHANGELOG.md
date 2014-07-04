@@ -1,3 +1,21 @@
+<a name="0.2.1"></a>
+### 0.2.1 (2014-07-04)
+
+
+#### Bug Fixes
+
+* **sofa-image-resize-service:** image url encoding ([39939298](https://github.com/sofa/sofa-image-resizer-service/commit/39939298608c7bc4c77c7b2d486930f3259b77e6))
+
+
+<a name="0.2.1"></a>
+### 0.2.1 (2014-07-04)
+
+
+#### Bug Fixes
+
+* **sofa-image-resize-service:** image url encoding ([39939298](https://github.com/sofa/sofa-image-resizer-service/commit/39939298608c7bc4c77c7b2d486930f3259b77e6))
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2014-06-23)
 

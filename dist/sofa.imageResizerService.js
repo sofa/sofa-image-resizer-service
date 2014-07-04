@@ -1,5 +1,5 @@
 /**
- * sofa-image-resizer-service - v0.2.0 - 2014-06-23
+ * sofa-image-resizer-service - v0.2.1 - 2014-07-04
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -50,7 +50,7 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
         var str = [];
         for (var p in obj) {
             if (obj.hasOwnProperty(p)) {
-                str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+                str.push(p + '=' + obj[p]);
             }
         }
         return str.join('&');
@@ -100,7 +100,7 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
 
         var defaults = {
             cmd: 'resize',
-            url: imageUrl,
+            url: encodeURI(imageUrl),
             quality: 100,
             devicePixelRatio: $window.devicePixelRatio
         },
@@ -113,8 +113,8 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
             fullArgs.maxheight *= args.devicePixelRatio;
         }
 
-        var encodedCall = base64Encode(objectToQueryString(fullArgs)).replace('/', '_') + '.' + imageExt,
-            resizedImageUrl = configService.get('imageResizerEndpoint') + encodedCall;
+        var encodedCall = base64Encode(objectToQueryString(fullArgs)).replace('/', '_').match(/.{1,250}/g).join('/') + '.' + imageExt,
+            resizedImageUrl = configService.get('imageResizer') + encodedCall;
 
         resizeUrlCache[cacheKey] = resizedImageUrl;
 
