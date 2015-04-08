@@ -1,13 +1,12 @@
 /**
- * sofa-image-resizer-service - v0.2.1 - 2014-07-04
+ * sofa-image-resizer-service - v0.3.0 - Wed Apr 08 2015 10:08:03 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
- * THIS SOFTWARE CONTAINS COMPONENTS OF THE SOFA.IO COUCHCOMMERCE SDK (WWW.SOFA.IO).
+ * THIS SOFTWARE CONTAINS COMPONENTS OF THE SOFA.IO COUCHCOMMERCE SDK (WWW.SOFA.IO)
  * IT IS PROVIDED UNDER THE LICENSE TERMS OF THE ATTACHED LICENSE.TXT.
  */
-;(function (sofa, undefined) {
-
+;(function (sofa, document, undefined) {
 'use strict';
 /* global sofa, base64Encode */
 
@@ -123,5 +122,4 @@ sofa.define('sofa.ImageResizerService', function (configService, $window) {
 
     return self;
 });
-
-}(sofa));
+}(sofa, document));

@@ -6,7 +6,7 @@
         "Pascal Precht <pascal@couchcommerce.com>"
     ],
     "dependencies": {
-        "sofa-core": "~0.6.1"
+        "sofa-core": "~0.15.1"
     },
     "description": "Sofa Web SDK component.",
     "main": "dist/sofa.imageResizerService.js",

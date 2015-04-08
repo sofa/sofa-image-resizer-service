@@ -28,7 +28,7 @@ describe('sofa.ImageResizerService', function () {
         it('should require maxwidth/maxheight', function () {
             expect(function () {
                 imageResizerService.resize();
-            }).toThrow('maxwidth and maxheight are required parameters');
+            }).toThrowError('maxwidth and maxheight are required parameters');
         });
 
         it('should return a url to the CDN', function () {
