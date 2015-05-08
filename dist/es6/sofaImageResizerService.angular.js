@@ -6,11 +6,9 @@
  * THIS SOFTWARE CONTAINS COMPONENTS OF THE SOFA.IO COUCHCOMMERCE SDK (WWW.SOFA.IO)
  * IT IS PROVIDED UNDER THE LICENSE TERMS OF THE ATTACHED LICENSE.TXT.
  */
-;(function (angular) {
 'use strict';
-
-'use strict';
-
-angular.module('sofa.imageResizeService', ['sofa.core']).factory('imageResizeService', ["configService", "$window", function (configService, $window) {
+import ImageResizerService from 'imageResizerService';
+angular.module('sofa.imageResizeService', ['sofa.core'])
+.factory('imageResizeService', function(configService, $window) {
     return new ImageResizerService(configService, $window);
-}]);}(angular));
+});

@@ -9,8 +9,14 @@
 ;(function (angular) {
 'use strict';
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _imageResizerService = require('imageResizerService');
+
+var _imageResizerService2 = _interopRequireDefault(_imageResizerService);
+
 'use strict';
 
 angular.module('sofa.imageResizeService', ['sofa.core']).factory('imageResizeService', ["configService", "$window", function (configService, $window) {
-    return new ImageResizerService(configService, $window);
+    return new _imageResizerService2['default'](configService, $window);
 }]);}(angular));

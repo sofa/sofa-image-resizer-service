@@ -1,5 +1,5 @@
 'use strict';
-/* global sofa */
+/* global sofa, ImageResizerService */
 
 describe('sofa.ImageResizerService', function () {
 
@@ -8,7 +8,7 @@ describe('sofa.ImageResizerService', function () {
 
     beforeEach(function () {
         configService = new sofa.ConfigService();
-        imageResizerService = new sofa.ImageResizerService(configService, window);
+        imageResizerService = new ImageResizerService(configService, window);
     });
 
     it('should be defined', function () {
