@@ -1,5 +1,6 @@
 'use strict';
 /* global sofa */
+/* @flow */
 
 class ImageResizerService {
     constructor(configService, $window) {
@@ -11,7 +12,7 @@ class ImageResizerService {
     
     // http://phpjs.org/functions/base64_encode/
     /* jshint ignore:start */
-    base64Encode(data) {
+    base64Encode(data: string): string {
         if (typeof this.$window.btoa === 'function') {
             return this.$window.btoa(data);
         }
@@ -42,7 +43,7 @@ class ImageResizerService {
     /* jshint ignore:end */
 
     //http://stackoverflow.com/questions/1714786/querystring-encoding-of-a-javascript-object
-    objectToQueryString(obj) {
+    objectToQueryString(obj: object): string {
         var str = [];
         for (var p in obj) {
             if (obj.hasOwnProperty(p)) {
@@ -53,7 +54,7 @@ class ImageResizerService {
     }
 
     // http://www.developerdrive.com/2013/08/turning-the-querystring-into-a-json-object-using-javascript/
-    queryStringToObject(queryString) {
+    queryStringToObject(queryString: string): object {
         var pairs = queryString.split('&');
         var result = {};
         pairs.forEach(function (pair) {
@@ -63,7 +64,7 @@ class ImageResizerService {
         return JSON.parse(JSON.stringify(result));
     }
 
-    resize(imageUrl, args) {
+    resize(imageUrl: string, args: Array<string>): string {
         if (!this.configService.get('imageResizerEnabled')) {
             return (imageUrl);
         }
