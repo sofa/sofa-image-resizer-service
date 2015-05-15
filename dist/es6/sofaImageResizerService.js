@@ -1,5 +1,5 @@
 /**
- * sofa-image-resizer-service - v0.3.0 - Fri May 15 2015 11:40:45 GMT+0200 (CEST)
+ * sofa-image-resizer-service - v0.3.0 - Fri May 15 2015 14:05:56 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
