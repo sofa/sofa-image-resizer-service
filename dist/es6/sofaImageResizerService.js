@@ -1,5 +1,5 @@
 /**
- * sofa-image-resizer-service - v0.3.0 - Fri May 08 2015 14:19:07 GMT+0200 (CEST)
+ * sofa-image-resizer-service - v0.3.0 - Fri May 15 2015 11:40:45 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -8,6 +8,7 @@
  */
 'use strict';
 /* global sofa */
+/* @flow */
 
 class ImageResizerService {
     constructor(configService, $window) {
@@ -19,7 +20,7 @@ class ImageResizerService {
     
     // http://phpjs.org/functions/base64_encode/
     /* jshint ignore:start */
-    base64Encode(data) {
+    base64Encode(data: string): string {
         if (typeof this.$window.btoa === 'function') {
             return this.$window.btoa(data);
         }
@@ -50,7 +51,7 @@ class ImageResizerService {
     /* jshint ignore:end */
 
     //http://stackoverflow.com/questions/1714786/querystring-encoding-of-a-javascript-object
-    objectToQueryString(obj) {
+    objectToQueryString(obj: object): string {
         var str = [];
         for (var p in obj) {
             if (obj.hasOwnProperty(p)) {
@@ -61,7 +62,7 @@ class ImageResizerService {
     }
 
     // http://www.developerdrive.com/2013/08/turning-the-querystring-into-a-json-object-using-javascript/
-    queryStringToObject(queryString) {
+    queryStringToObject(queryString: string): object {
         var pairs = queryString.split('&');
         var result = {};
         pairs.forEach(function (pair) {
@@ -71,7 +72,7 @@ class ImageResizerService {
         return JSON.parse(JSON.stringify(result));
     }
 
-    resize(imageUrl, args) {
+    resize(imageUrl: string, args: Array<string>): string {
         if (!this.configService.get('imageResizerEnabled')) {
             return (imageUrl);
         }
@@ -122,6 +123,12 @@ class ImageResizerService {
         return resizedImageUrl;
 
     }
+}
+
+if (sofa) {
+    sofa.define('sofa.ImageResizerService', function(configService, $window) {
+        return new ImageResizerService(configService, $window);
+    });
 }
 
 export default ImageResizerService;

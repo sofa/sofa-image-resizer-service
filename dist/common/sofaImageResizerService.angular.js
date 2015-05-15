@@ -1,5 +1,5 @@
 /**
- * sofa-image-resizer-service - v0.3.0 - Fri May 08 2015 14:19:08 GMT+0200 (CEST)
+ * sofa-image-resizer-service - v0.3.0 - Fri May 15 2015 11:40:47 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -18,5 +18,6 @@ var _imageResizerService2 = _interopRequireDefault(_imageResizerService);
 'use strict';
 
 angular.module('sofa.imageResizeService', ['sofa.core']).factory('imageResizeService', ["configService", "$window", function (configService, $window) {
+    var _ImageResizerService = _imageResizerService2['default'] || sofa.ImageResizerService;
     return new _imageResizerService2['default'](configService, $window);
 }]);}(angular));

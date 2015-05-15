@@ -1,5 +1,5 @@
 /**
- * sofa-image-resizer-service - v0.3.0 - Fri May 08 2015 14:19:07 GMT+0200 (CEST)
+ * sofa-image-resizer-service - v0.3.0 - Fri May 15 2015 11:40:45 GMT+0200 (CEST)
  * http://www.sofa.io
  *
  * Copyright (c) 2014 CouchCommerce GmbH (http://www.couchcommerce.com / http://www.sofa.io) and other contributors
@@ -19,6 +19,7 @@ System.register([], function (_export) {
         execute: function () {
             'use strict';
             /* global sofa */
+            /* @flow */
 
             ImageResizerService = (function () {
                 function ImageResizerService(configService, $window) {
@@ -156,6 +157,12 @@ System.register([], function (_export) {
 
                 return ImageResizerService;
             })();
+
+            if (sofa) {
+                sofa.define('sofa.ImageResizerService', function (configService, $window) {
+                    return new ImageResizerService(configService, $window);
+                });
+            }
 
             _export('default', ImageResizerService);
         }

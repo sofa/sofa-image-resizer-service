@@ -117,4 +117,10 @@ class ImageResizerService {
     }
 }
 
+if (sofa) {
+    sofa.define('sofa.ImageResizerService', function(configService, $window) {
+        return new ImageResizerService(configService, $window);
+    });
+}
+
 export default ImageResizerService;
